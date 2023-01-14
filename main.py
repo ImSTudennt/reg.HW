@@ -1,12 +1,13 @@
 import csv
 import re
+from logger1 import logger
 
 def change_numb(text):
     pattern = r"(\+7|8)?\s?\(?(\d{3})\)?[\s|-]?(\d{3})[\s|-]?(\d{2})[\s|-]?(\d{2})(\s)?\(?(доб\.)?\s?(\d+)?\)?"
     result = re.sub(pattern, r"+7(\2)\3-\4-\5\6\7\8", text)
     return result
 
-
+@logger
 def change_file(lis):
     text_dic = {}
     for el in lis[1:]:
